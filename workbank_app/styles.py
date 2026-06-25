@@ -18,11 +18,22 @@ def inject_custom_css():
         color: #0F172A;
     }
 
-    /* Hide Streamlit chrome so the report reads as a polished dashboard */
-    #MainMenu, header [data-testid="stToolbar"], [data-testid="stDecoration"],
-    [data-testid="stStatusWidget"], [data-testid="stToolbar"] {
+    /* Keep Streamlit's sidebar toggle visible, hide only noisy chrome. */
+    #MainMenu, [data-testid="stDecoration"], [data-testid="stStatusWidget"] {
         display: none !important;
         visibility: hidden !important;
+    }
+
+    header {
+        background: rgba(255, 255, 255, 0.72) !important;
+        backdrop-filter: blur(14px);
+    }
+
+    [data-testid="collapsedControl"] {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        z-index: 999999 !important;
     }
     
     /* Header main */
